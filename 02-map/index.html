@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <h1>Map</h1>
+
+    <div>
+        <div><span>let</span> <span>pessoas</span> = [</div>
+        <div>&nbsp; &nbsp; { <span>nome</span><span>:</span> <span>'Roberto'</span>, <span>idade</span><span>:</span> <span>33</span> },</div>
+        <div>&nbsp; &nbsp; { <span>nome</span><span>:</span> <span>'Ricardo'</span>, <span>idade</span><span>:</span> <span>33</span> },</div>
+        <div>&nbsp; &nbsp; { <span>nome</span><span>:</span> <span>'Raphael'</span>, <span>idade</span><span>:</span> <span>27</span> },</div>
+        <div>]</div>
+        <br />
+        <div><span>// map transforma uma array em uma nova, para ser lidas ou chamadas</span></div>
+        <div><span>// de forma mais simplificada</span></div>
+        <br />
+        <div><span>let</span> <span>nomeDasPessoas</span> = <span>pessoas</span>.<span>map</span>(<span>function</span>(<span>pessoa</span>) {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>pessoa</span>.<span>nome</span></div>
+        <div>})</div>
+        <br />
+        <div><span>console</span>.<span>log</span>(<span>nomeDasPessoas</span>)</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

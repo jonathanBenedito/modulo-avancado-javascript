@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reduce</title>
+</head>
+<body>
+    <h1>Reduce</h1>
+
+    <div>
+        <div><span>let</span> <span>ordens</span> = [</div>
+        <div>&nbsp; &nbsp; { <span>cliente</span><span>:</span> <span>'Roberto'</span>, <span>tipo</span><span>:</span> <span>'compra'</span>, <span>quantidade</span><span>:</span> <span>56</span>, <span>ativo</span><span>:</span> <span>'NFLX34'</span> },</div>
+        <div>&nbsp; &nbsp; { <span>cliente</span><span>:</span> <span>'Ricardo'</span>, <span>tipo</span><span>:</span> <span>'compra'</span>, <span>quantidade</span><span>:</span> <span>76</span>, <span>ativo</span><span>:</span> <span>'AAPL34'</span> },</div>
+        <div>&nbsp; &nbsp; { <span>cliente</span><span>:</span> <span>'Raphael'</span>, <span>tipo</span><span>:</span> <span>'venda'</span>, <span>quantidade</span><span>:</span> <span>21</span>, <span>ativo</span><span>:</span> <span>'GOGL34'</span> },</div>
+        <div>]</div>
+        <br />
+        <div><span>// reduce executa uma fun&ccedil;&atilde;o fornecida para cada elemento do array,</span></div>
+        <div><span>// resultando num &uacute;nico valor de retorno.</span></div>
+        <br />
+        <div><span>let</span> <span>quantidadeDeOrdens</span> = <span>ordens</span>.<span>reduce</span>(<span>function</span>(<span>somaOrdens</span>, <span>ordem</span>) {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>somaOrdens</span> + <span>ordem</span>.<span>quantidade</span></div>
+        <div>}, <span>0</span>)</div>
+        <br />
+        <div><span>console</span>.<span>log</span>(<span>quantidadeDeOrdens</span>)</div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
