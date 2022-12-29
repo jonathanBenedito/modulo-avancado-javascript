@@ -21,6 +21,12 @@
     <li>
         <a href="#aula-05---desestruturação-de-objetos-e-arrays">Aula 05 - Desestruturação de Objetos e Arrays</a>
     </li>
+    <li>
+        <a href="#aula-06---operador-spread">Aula 06 - Operador Spread</a>
+    </li>
+    <li>
+        <a href="#aula-07---parâmetro-rest">Aula 07 - Parâmetro REST</a>
+    </li>
 </ul>
 
 ## Aula 01 - Filter
@@ -91,4 +97,38 @@ console.log(dois)
 console.log(tres)
 ```
 
+## Aula 06 - Operador Spread
 
+```jsx
+// Operador Spread permite concatenar arrays ou clonar objetos
+
+// Concatenado arrays
+
+let pessoas1 = ['Roberto', 'Ricardo', 'Raphael']
+
+const pessoas = ['Roberto', 'Ricardo', 'Raphael']
+console.log(...pessoas)
+
+// Clonando objetos
+
+const objeto1 = { nome: 'Roberto', idade: 33 }
+
+const objetoClonado = { ...objeto1 }
+console.log(objetoClonado)
+```
+
+## Aula 07 - Parâmetro REST
+
+```jsx
+// Parâmetro REST permite adicionar vários valores num parâmetro escolhido
+// com 3 pontos, possibilitando repetir vários parâmetros ao chamar a função,
+// desde que seja na última posição.
+
+// OBS: O parâmetro passa a ser interpretado como uma array dentro da função.
+
+function incentivarQuester(mensagem, ...nomesQuesters) {
+    nomesQuesters.map(nomeQuester => console.log(`${mensagem} ${nomeQuester}`))
+}
+
+incentivarQuester("Parabéns por ter chego ao módulo de Javascript avançado,", 'João', 'Roberto', 'Maria')
+```

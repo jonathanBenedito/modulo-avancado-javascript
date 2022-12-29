@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Spread</title>
+</head>
+<body>
+    <h1>Operador Spread</h1>
+
+    <div>
+        <div><span>// Operador Spread permite concatenar arrays ou clonar objetos</span></div>
+        <br />
+        <div><span>// Concatenado arrays</span></div>
+        <br />
+        <div><span>let</span> <span>pessoas1</span> = [<span>'Roberto'</span>, <span>'Ricardo'</span>, <span>'Raphael'</span>]</div>
+        <br />
+        <div><span>const</span> <span>pessoas</span> = [<span>'Roberto'</span>, <span>'Ricardo'</span>, <span>'Raphael'</span>]</div>
+        <div><span>console</span>.<span>log</span>(...<span>pessoas</span>)</div>
+        <br />
+        <div><span>// Clonando objetos</span></div>
+        <br />
+        <div><span>const</span> <span>objeto1</span> = { <span>nome</span><span>:</span> <span>'Roberto'</span>, <span>idade</span><span>:</span> <span>33</span> }</div>
+        <br />
+        <div><span>const</span> <span>objetoClonado</span> = { ...<span>objeto1</span> }</div>
+        <br />
+        <div><span>console</span>.<span>log</span>(<span>objetoClonado</span>)</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
