@@ -27,6 +27,18 @@
     <li>
         <a href="#aula-07---parâmetro-rest">Aula 07 - Parâmetro REST</a>
     </li>
+    <li>
+        <a href="#aula-08---setinterval-e-settimeout">Aula 08 - SetInterval e SetTimeout</a>
+    </li>
+    <li>
+        <a href="#aula-09---promises">Aula 09 - Promises</a>
+    </li>
+    <li>
+        <a href="#aula-10---then">Aula 10 - Then</a>
+    </li>
+    <li>
+        <a href="#aula-11---async-e-await">Aula 11 - Async e Await</a>
+    </li>
 </ul>
 
 ## Aula 01 - Filter
@@ -131,4 +143,105 @@ function incentivarQuester(mensagem, ...nomesQuesters) {
 }
 
 incentivarQuester("Parabéns por ter chego ao módulo de Javascript avançado,", 'João', 'Roberto', 'Maria')
+```
+
+## Aula 08 - SetInterval e SetTimeout
+
+`setInterval()`
+
+```jsx
+// SetInterval executa um bloco de código a cada x milisegundos.
+// Funciona de forma assíncrona
+
+const interval = 2000
+
+setInterval(function() {
+    console.log("Executando a cada 2 segundos")
+}, interval)
+```
+
+`clearInterval()`
+
+```jsx
+// Remove uma função de setInterval
+clearInterval(nomeDaFuncao)
+```
+
+`setTimeout()`
+
+```jsx
+// SetTimeout executa um bloco de código depois de um determinado tempo
+// em milisegundos. Funciona de forma assíncrona
+
+const timer = 2000
+
+setTimeout(function() {
+    alert("Olá")
+}, timer)
+```
+
+`clearTimeout()`
+
+```jsx
+// Remove uma função de setTimeout
+setTimeout(nomeDaFuncao)
+```
+
+## Aula 09 - Promises
+
+```jsx
+// Promise é uma forma de tratamento de sucesso ou falha de uma
+// operação assíncrona e retorna algum valor.
+
+new Promise((resolve, reject) => {
+
+})
+```
+
+```jsx
+let ferverAgua = function(chaleiraEstaNoFogao, fogaoEstaLigado) {
+    return new Promise((resolve, reject) => {
+        if (chaleiraEstaNoFogao && fogaoEstaLigado) {
+            console.log('começando o processo de ferver água')
+            resolve()
+        } else {
+             console.log('é necessário ligar o fogão e colocar a chaleira no fogão para ferver a água')                                                   
+            reject()
+        }
+    })
+}
+
+let chaleiraEstaNoFogao = true
+let fogaoEstaLigado = false
+ferverAgua(chaleiraEstaNoFogao, fogaoEstaLigado)
+console.log('fazendo café')
+```
+
+## Aula 10 - Then
+
+`then`
+
+```jsx
+// then executa um bloco de código, caso o retorno de uma promise
+// for resolvida
+
+new Promise((resolve, reject) => {}).then(console.log('Olá!'))
+```
+
+## Aula 11 - Async e Await
+
+```jsx
+// async faz com que uma função seja executada de forma assíncrona.
+
+async function iniciarProcessoDeFazerCafe() {
+
+    // await espera uma função ser finalizada antes de executar o restante
+    // do bloco de código
+
+    const aguaFervida = await ferverAgua(chaleiraEstaNoFogao, fogaoEstaLigado)
+    const cafePassado = await passarOCafe(aguaFervida)
+    const cafeTomado = await tomarCafe(cafePassado)
+    const xicaraLavada = await lavarXicara(cafeTomado)
+    if(xicaraLavada) console.log('Finalizando o ritual de tomar o café, bora trabalhar')
+}
 ```

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval e SetTimeout</title>
+</head>
+<body>
+    <h1>SetInterval & SetInterval</h1>
+
+    <div>
+        <div><span>// SetTimeout executa um bloco de c&oacute;digo depois de um determinado tempo</span></div>
+        <div><span>// em milisegundos. Funciona de forma ass&iacute;ncrona</span></div>
+        <br />
+        <div><span>const</span> <span>timer</span> = <span>2000</span></div>
+        <br />
+        <div><span>setTimeout</span>(<span>function</span>() {</div>
+        <div>&nbsp; &nbsp; <span>alert</span>(<span>"Ol&aacute;"</span>)</div>
+        <div>}, <span>timer</span>)</div>
+        <br />
+        <div><span>const</span> <span>test</span> = <span>setTimeout</span>(<span>function</span>() {</div>
+        <div>&nbsp; &nbsp; <span>alert</span>(<span>"Teste"</span>)</div>
+        <div>}, <span>timer</span>)</div>
+        <br />
+        <div><span>// Remove uma fun&ccedil;&atilde;o de setTimeout</span></div>
+        <div><span>clearTimeout</span>(<span>test</span>)</div>
+        <br />
+        <div><span>// SetInterval executa um bloco de c&oacute;digo a cada x milisegundos.</span></div>
+        <div><span>// Funciona de forma ass&iacute;ncrona</span></div>
+        <br />
+        <div><span>const</span> <span>interval</span> = <span>2000</span></div>
+        <br />
+        <div><span>setInterval</span>(<span>function</span>() {</div>
+        <div>&nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>"Executando a cada 2 segundos"</span>)</div>
+        <div>}, <span>interval</span>)</div>
+        <br />
+        <div><span>const</span> <span>nomeDaFuncao</span> = <span>setInterval</span>(<span>function</span>() {</div>
+        <div>&nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>"Fugindo..."</span>)</div>
+        <div>}, <span>interval</span>)</div>
+        <br />
+        <div><span>// Remove uma fun&ccedil;&atilde;o de setInterval</span></div>
+        <div><span>clearInterval</span>(<span>nomeDaFuncao</span>)</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

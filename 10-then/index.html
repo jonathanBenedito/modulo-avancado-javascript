@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Then</title>
+</head>
+<body>
+    <h1>Then</h1>
+
+    <div>
+        <div><span>// then executa um bloco de c&oacute;digo, caso o retorno de uma promise</span></div>
+        <div><span>// for resolvida</span></div>
+        <br />
+        <div><span>new</span> <span>Promise</span>((<span>resolve</span>, <span>reject</span>) <span>=&gt;</span> {}).<span>then</span>(<span>console</span>.<span>log</span>(<span>'Ol&aacute;!'</span>))</div>
+        <br />
+        <div><span>let</span> <span>ferverAgua</span> = <span>function</span>(<span>chaleiraEstaNoFogao</span>, <span>fogaoEstaLigado</span>) {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>, <span>reject</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>if</span> (<span>chaleiraEstaNoFogao</span> &amp;&amp; <span>fogaoEstaLigado</span>) {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 1 finalizado: &Aacute;gua foi fervida'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>()</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; } <span>else</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>console</span>.<span>log</span>(<span>'&eacute; necess&aacute;rio ligar o fog&atilde;o e colocar a chaleira no fog&atilde;o para ferver a &aacute;gua'</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>reject</span>()</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>chaleiraEstaNoFogao</span> = <span>true</span></div>
+        <div><span>let</span> <span>fogaoEstaLigado</span> = <span>true</span></div>
+        <br />
+        <div><span>let</span> <span>passarOCafe</span> = (<span>aguaFervida</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 2 finalizado: Caf&eacute; foi passado'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>(<span>true</span>)</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>tomarCafe</span> = (<span>cafePassado</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 3 finalizado: Terminei de tomar o caf&eacute;'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>(<span>true</span>)</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>lavarXicara</span> = (<span>cafeTomado</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 4 finalizado: terminei de lavar a x&iacute;cara'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>(<span>true</span>)</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>ferverAgua</span>(<span>chaleiraEstaNoFogao</span>, <span>fogaoEstaLigado</span>)</div>
+        <div>.<span>then</span>(() <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>passarOCafe</span>();</div>
+        <div>})</div>
+        <div>.<span>then</span>(() <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>tomarCafe</span>();</div>
+        <div>})</div>
+        <div>.<span>then</span>(() <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>lavarXicara</span>();</div>
+        <div>})</div>
+        <div>.<span>then</span>(() <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>console</span>.<span>log</span>(<span>'Finalizado ritual do caf&eacute;, bora trabalhar'</span>);</div>
+        <div>})</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
