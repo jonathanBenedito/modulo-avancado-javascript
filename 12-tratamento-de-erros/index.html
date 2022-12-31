@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de Erros</title>
+</head>
+<body>
+    <h1>Tratamento de Erros</h1>
+
+    <div>
+        <div><span>let</span> <span>ferverAgua</span> = <span>function</span>(<span>chaleiraEstaNoFogao</span>, <span>fogaoEstaLigado</span>) {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>, <span>reject</span>) <span>=&gt;</span> {</div>
+        <br />
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>// 'throw' serve para definir uma mensagem personalizada quando alguma condi&ccedil;&atilde;o for falsa</span></div>
+        <br />
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>if</span> (<span>typeof</span> <span>chaleiraEstaNoFogao</span> != <span>'boolean'</span>) <span>throw</span> <span>'Somente o tipo booleano &eacute; aceito'</span></div>
+        <br />
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>if</span> (<span>chaleiraEstaNoFogao</span> &amp;&amp; <span>fogaoEstaLigado</span>) {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 1 finalizado: &Aacute;gua foi fervida'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>()</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; } <span>else</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>const</span> <span>mensagemDeErro</span> = <span>'&Eacute; necess&aacute;rio ligar o fog&atilde;o e colocar a chaleira no fog&atilde;o para ferver a &aacute;gua'</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>reject</span>(<span>mensagemDeErro</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>passarOCafe</span> = (<span>aguaFervida</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 2 finalizado: Caf&eacute; foi passado'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>(<span>true</span>)</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>tomarCafe</span> = (<span>cafePassado</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 3 finalizado: Terminei de tomar o caf&eacute;'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>(<span>true</span>)</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>lavarXicara</span> = (<span>cafeTomado</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; <span>return</span> <span>new</span> <span>Promise</span>((<span>resolve</span>) <span>=&gt;</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Passo 4 finalizado: terminei de lavar a x&iacute;cara'</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>resolve</span>(<span>true</span>)</div>
+        <div>&nbsp; &nbsp; })</div>
+        <div>}</div>
+        <br />
+        <div><span>let</span> <span>chaleiraEstaNoFogao</span> = <span>true</span></div>
+        <div><span>let</span> <span>fogaoEstaLigado</span> = <span>true</span></div>
+        <br />
+        <div><span>// 'try' serve para dar uma resposta quando alguma promise for bem sucedida.</span></div>
+        <br />
+        <div><span>// 'catch' da uma resposta quando alguma promise cair no bloco else, ela &eacute; usada</span></div>
+        <div><span>// como forma de tratar erros com uma mensagem ou dar um comportamento personalizado</span></div>
+        <div><span>// que evita o erro fatal do sistema.</span></div>
+        <br />
+        <div><span>// 'finally' executa sempre ap&oacute;s passar do try e catch.</span></div>
+        <br />
+        <div><span>async</span> <span>function</span> <span>iniciarProcessoDeFazerCafe</span>() {</div>
+        <div>&nbsp; &nbsp; <span>try</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>const</span> <span>aguaFervida</span> = <span>await</span> <span>ferverAgua</span>(<span>chaleiraEstaNoFogao</span>, <span>fogaoEstaLigado</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>const</span> <span>cafePassado</span> = <span>await</span> <span>passarOCafe</span>(<span>aguaFervida</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>const</span> <span>cafeTomado</span> = <span>await</span> <span>tomarCafe</span>(<span>cafePassado</span>)</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>const</span> <span>xicaraLavada</span> = <span>await</span> <span>lavarXicara</span>(<span>cafeTomado</span>)</div>
+        <div>&nbsp; &nbsp; } <span>catch</span>(<span>err</span>) {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>err</span>)</div>
+        <div>&nbsp; &nbsp; } <span>finally</span> {</div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span>console</span>.<span>log</span>(<span>'Finalizando o ritual de tomar o caf&eacute;, bora trabalhar'</span>)</div>
+        <div>&nbsp; &nbsp; }</div>
+        <div>}</div>
+        <br />
+        <div><span>iniciarProcessoDeFazerCafe</span>()</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

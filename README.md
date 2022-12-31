@@ -39,6 +39,9 @@
     <li>
         <a href="#aula-11---async-e-await">Aula 11 - Async e Await</a>
     </li>
+    <li>
+        <a href="#aula-12---tratamento-de-erros">Aula 12 - Tratamento de Erros</a>
+    </li>
 </ul>
 
 ## Aula 01 - Filter
@@ -244,4 +247,38 @@ async function iniciarProcessoDeFazerCafe() {
     const xicaraLavada = await lavarXicara(cafeTomado)
     if(xicaraLavada) console.log('Finalizando o ritual de tomar o café, bora trabalhar')
 }
+```
+
+## Aula 12 - Tratamento de Erros
+
+```jsx
+// 'try' serve para dar uma resposta quando alguma promise for bem sucedida.
+
+// 'catch' da uma resposta quando alguma promise cair no bloco else, ela é usada
+// como forma de tratar erros com uma mensagem ou dar um comportamento personalizado
+// que evita o erro fatal do sistema.
+
+// 'finally' executa sempre após passar do try e catch.
+
+async function iniciarProcessoDeFazerCafe() {
+    try {
+        const aguaFervida = await ferverAgua(chaleiraEstaNoFogao, fogaoEstaLigado)
+        const cafePassado = await passarOCafe(aguaFervida)
+        const cafeTomado = await tomarCafe(cafePassado)
+        const xicaraLavada = await lavarXicara(cafeTomado)
+    } catch(err) {
+        console.log(err)
+    } finally {
+        console.log('Finalizando o ritual de tomar o café, bora trabalhar')
+    }
+}
+```
+
+`throw`
+
+```jsx
+// 'throw' serve para definir uma mensagem personalizada quando alguma 
+// condição for falsa
+
+if (typeof chaleiraEstaNoFogao != 'boolean') throw 'Somente o tipo booleano é aceito'
 ```
