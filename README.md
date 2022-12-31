@@ -42,6 +42,12 @@
     <li>
         <a href="#aula-12---tratamento-de-erros">Aula 12 - Tratamento de Erros</a>
     </li>
+        <li>
+        <a href="#aula-13---requisições-com-o-fetch">Aula 13 - Requisições com o fetch</a>
+    </li>
+    <li>
+        <a href="#aula-14---importando-e-exportando-módulos-javascript">Aula 14 - Importando e exportando módulos Javascript</a>
+    </li>
 </ul>
 
 ## Aula 01 - Filter
@@ -281,4 +287,61 @@ async function iniciarProcessoDeFazerCafe() {
 // condição for falsa
 
 if (typeof chaleiraEstaNoFogao != 'boolean') throw 'Somente o tipo booleano é aceito'
+```
+
+## Aula 13 - Requisições com o fetch
+
+```jsx
+// 'fetch' disponibiliza uma interface para execuções de requisições HTTP
+// através de Promises.
+
+async function criarBaralhoEmbaralhado() {
+    const url = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
+    const resposta = await fetch(url)
+    return await resposta.json()
+}
+```
+
+## Aula 14 - Importando e exportando módulos Javascript
+
+1. Ao usar a tag `<script>` no HTML, especifique o `type` como `"module"`
+
+```jsx
+<script type="module" src="index.js"></script>
+```
+
+2. Crie um arquivo js e construa uma função usando `export`
+
+```jsx
+export function somar(num1, num2) {
+    return num1 + num2;
+}
+```
+
+3. No arquivo onde queira usar a função exportada, use o `import` de acordo com código abaixo:
+
+```jsx
+import { somar } from './nome-do-arquivo.js'
+```
+
+4. Pronto agora é só chama-la!
+
+```jsx
+console.log(somar(1, 3))
+```
+
+É possível trocar o nome na hora da importação, se utilizarmos o `default` no `export`. NÃO É ACONSELHÁVEL.
+
+```jsx
+function teste(num1, num2) {
+    return num1 + num2;
+}
+
+export default teste
+```
+
+Não use as chaves `{}` ao importar a função com nomes diferentes.
+
+```jsx
+import somar from './nome-do-arquivo.js'
 ```
